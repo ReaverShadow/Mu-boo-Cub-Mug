@@ -70,29 +70,4 @@ Battery
 
 - Alt applications, Cluster configuration, Kiosk units
 
-HSIO# | HSIO Type | RX + | RX - | TX + | TX -
---- | --- | --- | --- | --- | ---
-HSIO0 | USB 3.2 10Gbps | 16 | 18 | 
-HSIO1 | USB 3.2 10Gbps | 22 | 24 |
-HSIO2 | PCIe 3.0 x1 | 28 | 30 | 
-HSIO3 | PCIe 3.0 x1 | 34 | 36 |
 
-HSIO8 | PCIe 3.0 x4 (Lane 0)
-HSIO9 | PCIe 3.0 x4 (Lane 1)
-HSIO10 | PCIe 3.0 x4 (Lane 2)
-HSIO11 | PCIe 3.0 x4 (Lane 3)
-
-HSIO6 | PCIe 3.0 x1
-
-### DDI/TCP
-- DDIB: HDMI 2.0
-- TCP0: HDMI 2.0
-- TCP1: USB Type-C (requires external PD controller)
-- USB2_P6: Dedicated for USB Type-C, must be used in conjunction with a PD controller, cannot be used as a standard USB port.
-### GPIO
-- I2C2: Communication with Type-C PD controller
-- GPP_B11: Type-C PD controller PMCALERT#
-- GPP_B14: SATA HDD LED
-- GPP_D0: WWAN_Power_Off
-- GPP_D1: WWAN_Reset
-GPP_D2: Communication interrupt with Type-C PD controller
