@@ -1,4 +1,6 @@
-# Mu-boo Cub Mug (Working Project Title - Fun cute spin alluding to work with LattePanda Mu)
+# Mu-boo Cub Mug 
+(Working Project Title - Fun cute spin alluding to work with LattePanda Mu)
+
 Minimalist USB 4/Thunderbolt, WiFi 6/BT, Battery-powered carrier expansion for the LattePanda Mu compute module.
 
 ## Purpose
