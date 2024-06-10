@@ -53,7 +53,7 @@ If i could, I would incorpoate both USB4 and OCuLink, but there are two limiting
 Storage
 - M.2 2230 NVMe SSD (PCIe 3.0 x1, 0.985 GB/s)
 Connectivity
-- USB 4 Controller (fall-back OCuLink)
+- USB 4 Controller Intel JHL8540 Maple Ridge *Subject to change (fall-back OCuLink)
 - Intel® Wi-Fi 6E AX210 M.2 E Key 2230 WLAN network card (PCIe 3.0 x1, 0.985 GB/s)
 - *Investigate if can use TCP (Technology Computer Port)
 Battery
@@ -66,7 +66,9 @@ Battery
 ## Stages
 1) Research and discuss with LattePanda Team passing battery status to OS Level. 
 ## Varients
-- Replace OCuLink with 
+- Replace OCuLink with
+
+- Alt applications, Cluster configuration, Kiosk units
 
 HSIO# | HSIO Type | RX + | RX - | TX + | TX -
 --- | --- | --- | --- | --- | ---
