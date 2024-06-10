@@ -1,4 +1,4 @@
-# Mu-boo Cub Mug
+# Mu-boo Cub Mug (Mu cub Mug, Mu Mocha Mug)
 Minimalist Thunderbold 4/USB 4, WiFi 6, Battery-powered Compute module expansion for the LattePanda Mu
 
 ## Purpose
