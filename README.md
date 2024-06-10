@@ -1,5 +1,5 @@
 # Mu-boo Cub Mug (Mu cub Mug, Mu Mocha Mug)
-Minimalist Thunderbold 4/USB 4, WiFi 6, Battery-powered Compute module expansion for the LattePanda Mu
+Minimalist USB 4/Thunderbolt, WiFi 6/BT, Battery-powered carrier expansion for the LattePanda Mu compute module.
 
 ## Purpose
 The goal of this project is to design a highly portable, remote access/streaming x86 computer that fits in your pocket, tailored for certain moderate-weight workloads lacking suitable ARM-based alternatives.
