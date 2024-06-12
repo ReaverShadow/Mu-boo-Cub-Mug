@@ -21,18 +21,31 @@ Come last year, I switched to Samsung Fold (from iPhone), and started using Sams
 
 At this point, i have this desire for a new mini-pc, but i really want it portable, and USB-PD powered (I mean most of them don't run near 100W and we've had 240W official since 2022). Finally, last month, it smacked me in the face. I was helping setup AV team at a confrence, and I actually saw a bunch of ppl using handhald PCs like the Asus Ally and Steamdeck. IMO, i (almost*) have one, thats a better system, i just need to remote access.... and that's where my problems blew up. There were hours of downtime during the confrence, and in the hotel, i had next to no cell signal. Even if i could access the WiFi, which is another scare in itself, bandwidth would be set to bareminimal, yet alone reduced with the swoths of ppl. Why couldn't my beautiful folding phone be my "steamdeck"... it could if only.... and that's where the Lattepanda Mu comes in. During the confrence, i was so annoyed, so I had hoped i missed a product, or something new was announced. That's when i caught the Mu, and because of the card size module nature of it, i was like, with this i can easil prototpe my idea. I don't have to worry the majorityy of complex PSB issues with a modern x86 processor. The infor and coumentation is open, and the ppl at LattePanda seem to want to help bring my idea to life with being open to discuss possible BIOS needs. And due to the smaller then a credit card size, i can design to how i want it. I don't want a 5kg weight in my pocket, but it don't need to be an Apple feather, either. Also, i can add the USB power method i want. Additionally, build and maybe with the community make a unique project, many people can enjoy. 
 
+While this is an idea i had. I think would like to open this project to anyone whom is interest, and potentially contribute their time, effort or wish for the compleition so they can use the files to build their own.
 
 ## Priorities, Choices and Challenges
 #### Priority 1: Battery 
 * Based on Mu web info, TDP is between 6W to 35W. Let's preliminarily plan out 3 power modes, 6W, 18W, 35W.
-> * testing to verify this will be needed, as review of N100 mini-pc showed idle of 9W and workload of 22W.
-* I'll aim for the approx. 2.5 hours of use @ 22W = 55Wh. We'll use 4 x Standard 18650 Li-Ion cells to start, each with a nominal charge of 3.7V. (more power calculation to come)
-* My desire is for the battery life to be passed through to the OS, so the user can see the remaining battery when using Remote Access/Streaming. As of current, I'm not sure if the battery management IC to pass this information to BIOS, which is then accessible to windows, or directl accessible to windows via I2C. If the Former, i'm hoping LattePanda can work with me to develop this capacity within the bios. 
+> testing to verify this will be needed, as review of N100 mini-pc showed idle of 9W and workload of 22W.
+* Aim is for the approx. 2.5 hours of use @ 22W = 55Wh.  4 x Standard 18650 Li-Ion cells to start, aim for 3Ah per cell.
+  > > Investigate 21700 cell cost compared to 18650
+> * Fully Charged (4.2V per cell): 4V2 × 4 = 16V8
+> * Nominal Voltage (3.7V per cell): 3V7 × 4 = 14V8
+> * End-of-Discharge (3.0V per cell): 3V0 × 4 = 12V
+> * Current = Power/Voltage = 22W/14.8 = 1.49A
+> * Duration = Capcity/Current = 3A/1.49A = 2.01 Hours
+* The desire is for the battery life to be passed through to the OS, so the user can see the remaining battery when using Remote Access/Streaming. As of current, I'm not sure if the battery management IC to pass this information to BIOS, which is then accessible to windows, or directl accessible to windows via I2C. If the Former, i'm hoping LattePanda can work with me to develop this capacity within the bios. 
 
-#### Prioirty 1: Size
+#### Prioirty 2: Size
+* Mu: 69.6 x 60mm (Credit Card: 54 x 85.6mm)
+* 18650 cell, D18mm x L65mm, 21700 cell, D21mm x L70mm
+* Preliminary:  4 x 21mm battery width (single row, side-by-side, all 4 cells) + 2 x 1mm enclosure wall thickness + 2 x 1mm wiggle = 88mm wide. 
 
 #### Challenge: Possible Requests and Discussions with LattePanda BIOS Team
-* undervolting and power modes
+1) In order for OS to have battery info/status, does it need to be passed through BIOS, and can they provide bios with that capabiltiy. 
+2) Request for binding HSIO0-3, as a PCIe3.0 x4, as well as HSIO8-11 for two seperate PCIe3.0 x4 connections. additionally, having HSIO6 for PCIe3.0 x1.
+3) Undervolting and power modes
+
 #### Challenge: High speed traces
 - 
 #### Choice: Reason I choose USB 4 over OCuLink, considering gaming is a pillar of need. (This maybe more to reassure myself).
@@ -41,7 +54,7 @@ Without a doubt, as showing in multiple reviews and analysis (i'll link any i fi
 --- | --- | ---
 Standardization Body |	USB-IF (USB Implementers Forum)	| PCI-SIG (PCI Special Interest Group)
 **Primary Use Case**	| "Universal connectivity (data, video, power)" i.e. consumers |	Internal storage and enterprise connections
-Max Data Transfer Rate (don't forget this doesn't take into account protocol overhead, which is the real killer) |	Up to 5GB/s (40Gbps, limited to 4GB/s)	| Up to 16GB/s (i.e. PCIe 4.0 x8 lanes max, but e're limited to 4GB/s PCIe3.0)
+Max Data Transfer Rate (don't forget this doesn't take into account protocol overhead, which is the real killer) |	Up to 5GB/s (40Gbps, limited to 4GB/s)	| Up to 16GB/s (i.e. PCIe 4.0 x8 lanes max, but we're limited to 4GB/s PCIe3.0)
 **Protocol Support**	| USB, PCIe, DisplayPort	| PCIe (x1, x2, x4, x8 lanes) 
 Backward Compatibility |	USB 3.2, USB 2.0, Thunderbolt 3	| PCIe (PCIe 3.0 and 4.0 backward compatibility)
 **Power Delivery** |	Up to 100W (USB Power Delivery)	| No direct power delivery
@@ -64,6 +77,10 @@ Note: Another factor that could affect performance, in addition to protocol over
 
 
 ## Hardware / Spec
+#### Mechanical
+* SO-DIMM socket
+* Screw stand-offs + screws
+* USB-C connectors
 #### Pinout
 If PCB layout allows I would like to have have GPIOs, UART and an unused I2C bus accessible via removable compartment on the enclosure.
 #### LEDs
@@ -72,11 +89,12 @@ If PCB layout allows I would like to have have GPIOs, UART and an unused I2C bus
 * 2x USB-C, both will be charging capable. 
 > This is the current plan. Since there are many USB-A devicces out there, I am/have considered adding one USB2.0 Type-A port, if PCB and phsysical space will allow. 
 #### Storage
-* M.2 2230 NVMe SSD via HSIO2 (PCIe 3.0 x1, 0.985 GB/s)
-> * Ideally PCIe x4 
-> * Hoping either PCIe BIOS (coming soon), or can discuss with Lattepanda BIOS team, if HSIO0/1 can be grouped with HSIO2/3, for an additional PCIe x4 
+* M.2 2230 NVMe SSD via HSIO2/3 (PCIe 3.0 x1, 1.97 GB/s, half the USB4 transfer rate as limited by the system )
+> * Ideally PCIe x4 (HSIO0-3)
+> > * Hoping either PCIe BIOS (coming soon), or can discuss with Lattepanda BIOS team, if HSIO0/1 can be grouped with HSIO2/3 to form a PCIe 3.0x4 port. (Since all the lanes belong to the same controller, i'm hopeful.)
+> > * If stuck with only a PCIe x2 port, an NVMe will still 4 times faster then SATA3 SSD, even if it's limited to it's full speed. 
 #### Connectivity
-* USB 4 Controller Intel JHL8540 Maple Ridge
+* USB 4 Controller Intel JHL8540 Maple Ridge via HSIO 8-11 (PCIe 3.0 x4)
 > * ASM4242 is an alternative, but doesn't seem avaiable
 > * fall-back OCuLink
 * M.2 E Key 2230 WLAN network card via HSIO6 (PCIe 3.0 x1, 0.985 GB/s)
@@ -88,8 +106,13 @@ If PCB layout allows I would like to have have GPIOs, UART and an unused I2C bus
 * 4 x Standard 18650 Li-Ion cells, range for 2Ah to 3.5Ah. 
 > * If 4x Li-po (nominal 14V4), at approx 22W x 2.5Hours = 55Wh. Avg V = ( peak + discharged )/2 = ( 16V8 + 12V )/2 = 14V4. mAh = ( Energy (Wh) x 1000 )/ nominal V = 3819mAh. Add 1.2 efficeny losses, relaiabity and battery longetivity = 3819mAh * 1.2 = approx 4500mAh.
 - Battery Management IC, TBD, based on communication with community and possible LattePanda
+#### Power
+* USB-PD IC
+* Buck converter. Aim for as self contained as possible, perhaps a module for V1. (Specially choose 14V8 nomial battery as to avoid using Boost, which are less efficent.) 
 #### RTC
 * battery socket (CR1220 3V)
+#### protection
+* Reverse Current and surge/over voltage protection
 
 ## Stages
 1) Research and discuss with LattePanda Team passing battery status to OS Level.
@@ -109,7 +132,7 @@ Enclosure designing
 * V-Beta* = "MuTop", a PC case (akin to the smallest ITX ones) with a standard GFX card.
 > * 1x PCIe3.0 x4 slot 
 > * 1x M.2 2280 x4 NVMe SSD
-> * 1x WiFi AX201 (assuming i can figure out what CNVio2 is and how it's pinout works)
+> * 1x WiFi
 > * USB-PD 240W, I suspect any GPU that has a TDP greater then 200W will be bottlenecked by N100 system. 
 > **Note**: *only if by 40+ requests for it, **AND** assuming the Lattepanda BIOS Team would release a BIOS that binds HSIO0,1,2,3,8,9,10,11 for a PCIe 3.0 x8 lane
 > 
