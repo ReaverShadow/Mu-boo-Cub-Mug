@@ -12,6 +12,8 @@ The Mu-boo Cub Mug aims to provide access to these applications/software without
 
 The target formfactor will be the size of a large external USB battery pack, featuring the moderately powerful x86 Intel N100 CPU, WiFi6, a few buttons for power on/off, performance mode selection, WiFi on/off, and two USB-C ports (one for device connectivity and one for power). Additional ports and connectivity can be managed through inexpensive and user-friendly USB hubs, or Bluetooth connectivity. The device will be USB4 compliant, supporting eGPUs and other Thunderbolt devices.
 
+It's possible the device could also function simultaneously as a portable router via something like proxmox with a open-source router guest and another desktop enviroment guest
+
 ## Conception and why the LattePanda Mu. 
 In todays world there are screens aplenty. I see them everywhere, paper/posters/whiteboards have been replaced by displays. Not to mention our homes, but many work places, even schools, have an external monitor (or two), for their workforces/students to use with laptops. Board/meeting rooms have big screen TVs or projectors, and there is a fairly good screen in almost everyones pocket. So, why do i need to carry another screen for when i just need the familar desktop enviroment of windows/linux/MacOS. iOS and android alternatives apps just aren't the same, and while the world tires to push to find the perfect finger friendly work space, Windows, MacOS and Linux still hold a strong foothold when it comes to getting most stuff done.
 
@@ -49,7 +51,19 @@ While this is an idea i had. I think would like to open this project to anyone w
 3) Undervolting and power modes
 
 #### Challenge: High speed traces
-- 
+
+#### Challenge: implementation of remote access/streaming.
+I'm currently aware of two method to establish a wireless connection Mu-boo Cub Mug, and another device. 
+* connecting to a external router, and 3rd device, which is counter to the project purpose.
+* connecting to the WiFi card on the Mu-boo Cub Mug. which has its own obstacles and issues.
+The two route for the later would:
+1) using windows network config to share a connection, typically this would be done through windows setting and creating a bridge between ethernet port and wireless adapter. However, there will not be an ethernet adapter, and thus the wireless adapter would need to be set to ad-hoc to turn it into an access point. It is well documented that the reliability of both those ways is not great. As well as Intel adapters being terrible for ad-hoc mode. Additionally, B-Link has/had a usb wireless adapter specifically designed to connect with the Quest via WiFi, but this adapter was problematic with Virtual Desktop users. In fact, the minimum requirements are for a PC/Laptop to be connected to a router via a physical wired connection.
+2) but since, your still connecting wirelessly to a router, that where the second route would come in. Using the virtualization capability of the N100 chip, with something like Proxmox to run two guess OS, one an Open Source router like OpenSNS and Windows.
+
+Unfortunately, a small hiccup would be if you connect a quest wireless to the Mu-boo Cub Mug, neither would have a connection to the internet. I suspect this could be accomplished in windows, but know it can be done in an open-source router where you bridge the wifi to another wifi device. ideally, you'll want to connect the 2.4Ghz band the internet, leaving the 5GHz or 6GHz band dedicated to only your streaming devices. 
+
+This is where another potential issue crops up. limited resources of core and ram. you basically have 3 OS (proxmox, openSNS and windows) running similtaneously. Ideally, I would like to investigate and try to solve these issues and "hiccups" on Windows, without having to use virtualization. but this would likely take more time, and I would assign it as a V1.1 task. 
+
 #### Choice: Reason I choose USB 4 over OCuLink, considering gaming is a pillar of need. (This maybe more to reassure myself).
 Without a doubt, as showing in multiple reviews and analysis (i'll link any i find below), OCuLink wins in the eGPU department. BUT... this is not soley developed around gaming/eGPU. The top goals of the project is around portability, not absolute, but reasonable, in terms of size, weight, duration. Let's see a side by side feature comparison.
 "Paper" Feature | USB 4 | OCuLink-2
