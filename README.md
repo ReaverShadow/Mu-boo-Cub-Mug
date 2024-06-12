@@ -23,6 +23,8 @@ At this point, i have this desire for a new mini-pc, but i really want it portab
 
 While this is an idea i had. I think would like to open this project to anyone whom is interest, and potentially contribute their time, effort or wish for the compleition so they can use the files to build their own.
 
+**__*****Everything Below this point is still preliminary, and subject to modification and changes*****__**
+
 ## Priorities, Choices and Challenges
 #### Priority 1: Battery 
 * Based on Mu web info, TDP is between 6W to 35W. Let's preliminarily plan out 3 power modes, 6W, 18W, 35W.
@@ -84,7 +86,10 @@ Note: Another factor that could affect performance, in addition to protocol over
 #### Pinout
 If PCB layout allows I would like to have have GPIOs, UART and an unused I2C bus accessible via removable compartment on the enclosure.
 #### LEDs
+* Power on
 #### Buttons
+* Power tact switch
+* 3 stage slider to adjust performance mode.
 #### Ports
 * 2x USB-C, both will be charging capable. 
 > This is the current plan. Since there are many USB-A devicces out there, I am/have considered adding one USB2.0 Type-A port, if PCB and phsysical space will allow. 
@@ -126,15 +131,19 @@ If PCB layout allows I would like to have have GPIOs, UART and an unused I2C bus
 3) Using carrier to prototype battery pack.
 4) PCB Design 
 Enclosure designing
+
+## Timeline
+
+
 ## Varients
-* V2 = Maybe add camera (play around with Hello Windows) and/or LiDRa, or something to take advantage of those likely 5 unused USB 2.0 ports. (I've always want to have a spectrometer in my pocket... hummm)
-* V-Alpha = Add mobile dGPU
+* V2 = Higher mAh battery, (20,000 mAH target). Maybe add camera (play around with Hello Windows) and/or LiDRa, or something to take advantage of those likely 5 unused USB 2.0 ports. (I've always want to have a spectrometer in my pocket... hummm)
+* V-Alpha = Add mobile dGPU, such as GeForce RTX4060 Laptop chip (35-115W) or Radeon RX 7600M (90W)
 * V-Beta* = "MuTop", a PC case (akin to the smallest ITX ones) with a standard GFX card.
 > * 1x PCIe3.0 x4 slot 
 > * 1x M.2 2280 x4 NVMe SSD
 > * 1x WiFi
 > * USB-PD 240W, I suspect any GPU that has a TDP greater then 200W will be bottlenecked by N100 system. 
-> **Note**: *only if by 40+ requests for it, **AND** assuming the Lattepanda BIOS Team would release a BIOS that binds HSIO0,1,2,3,8,9,10,11 for a PCIe 3.0 x8 lane
+> **Note**: *only if by 100+ requests for it
 > 
 > CWWK Mini PC has something like this called the Magic PC, and claim to have an x8 slot (Intel Doc No.:759603, Sec 19.4, figure.18, would suggest this is NOT possible. According to document, their are 3 seperate PCIe Controllers, two of which have a max of 4 lanes. CWWK's website only shows customs PCBs being attacked to the port, so they could be using their own implementation).
 * V-Detla = Portable Cluster
