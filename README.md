@@ -12,18 +12,29 @@ The Mu-boo Cub Mug aims to provide access to these applications/software without
 
 The target formfactor will be the size of a large external USB battery pack, featuring the moderately powerful x86 Intel N100 CPU, WiFi6, a few buttons for power on/off, performance mode selection, WiFi on/off, and two USB-C ports (one for device connectivity and one for power). Additional ports and connectivity can be managed through inexpensive and user-friendly USB hubs, or Bluetooth connectivity. The device will be USB4 compliant, supporting eGPUs and other Thunderbolt devices.
 
-It's possible the device could also function simultaneously as a portable router via something like proxmox with a open-source router guest and another desktop enviroment guest
+In order to access the desired function the device will also need to similtaneous function as a portable router. For V1, this will occur via running proxmox as a Host VM, with OpenWRT as a guest OS VM, and Windows 11 guest OS VM for it's Desktop Enviroment.
 
 ## Conception and why the LattePanda Mu. 
+### TL;DR: skip past if you don't need/want to know my story behind the idea.
 In today's world, there are screens aplenty. They are everywhere, replacing paper, posters, and whiteboards with displays. Lest our homes, but many workplaces and even schools have external monitors for use with laptops. Boardrooms are equipped with big screen TVs or projectors, not to forget everyone has a fairly good screen in their pocket. So, why do i need to carry another screen, with my laptop, when I just need the familiar desktop environment of Windows, Linux, or MacOS? iOS and Android alternatives just aren't the same, and while the world tries to create the perfect finger-friendly workspace; Windows, MacOS, and Linux still dominate for getting most tasks done.
 
 This concept started for me in late 2022 when I got an Oculus Quest 2. Whether gaming in VR or using Virtual Desktop for PCVR and flat-screen games, my Quest headset quickly replaced my monitor for all gaming (shout out to VorpX for converting flat-screen games to stereo 3D). Yes, the Quest 2 doesn't match the latest gaming monitors in quality or refresh rate (fingers crossed for Quest 4 with HDR), but with Virtual Desktop being wireless, I could game in [choose] room, chair, or bed, and even began experimenting, "if the moons align", on the go. (In all fairness, using something like Moonlight for many years). Despite this, it didn't occur to me to work via my VR headset until over a year later, using apps like Immersed or Virtual Desktop. (the latter only recently added support for multiple displays.)
 
-Come last year, I switched to Samsung Fold (from iPhone), and started using Samsung DeX (amazing function) for almost half my work, especially, as i have had to be a more remote this year. Also, due to having to be more remote, and my experiementing with streaming Quest 2 outside the house, i started using Moonlight Streaming for gaming in places where Quest 2 wouldn't work, aka Transit. Unfortunately/fortunately, two things happened on a single day, which birthed the need for the a device like the Mu-boo Cub Mug (it's a redicious name... but that's why its stuck so far). 1st, it was going to be a fully packed day 14 hour day out, and it began with me trying to get some Star Wars Jedi: Suvivor in. But the Celluar Networks we're having it. Then several hours later, i was an a enviroment where there was lots of activity, and i need to get some work done while i was waiting, but having a hard time focusing with the commotion. It got me thinking, i wish i had my Oculus to just Remote into my home office and focus on massive 2 virtual monitors. But i remembered the terrible network conditions from eariler in the day. I hate carrying more then i need, i've done it too many times, and i started to think, there has got to be a very time Windows PC i can easily carry in my pocket. like a phone, i donb't even need a keyyboard or monitor. I got my smartphone and i'll just carry the VR headset around. Spent an hour that day searching for this device, and nothing. But planted the idea of a smaller more portable solution to my desktop rig or even a gaming laptop. Over the next 2 months i did start to use my Quest more and more remotely for work, but there was hickups. A PC freeze, random reboot without VR desktop loading (suspect brown out), my home network crashed once, family has low end internet, and/or on many occasions of network sliggishness. One month, i ran out of data on my plan. Generally, if i lower to 900p on Moonlight, it will run smoothly. That's fine for games, where it's designed to be seen at varing distances based on screen size. Monitor, are generally 2 feet-ish. But in VR, where i'll usually do work, the screen is cm's from your eyes, if it's not 1080p it aweful, and thats for only one monitor! Higher resolution means high chance of "hiccups". If i had my PC/Server with me, in my pocket, all these "hicups" would be easily addressed or not at all.
+Last year, I switched to a Samsung Fold (from iPhone) and started using Samsung DeX for almost half my work, especially since I've had to be more remote this year. Due to the remote work and previously experimenting with streaming my Quest 2 outside the house, I started using Moonlight Streaming for some gaming, particularly with in transit. About 2 weeks into this, there was a particularly frustration day, with two moments, which lead to the conception of a device such as the Mu-boo Cub Mug (it's a redicious name... but that's why its stuck so far).
 
-At this point, i have this desire for a new mini-pc, but i really want it portable, and USB-PD powered (I mean most of them don't run near 100W and we've had 240W official since 2022). Finally, last month, it smacked me in the face. I was helping setup AV team at a confrence, and I actually saw a bunch of ppl using handhald PCs like the Asus Ally and Steamdeck. IMO, i (almost*) have one, thats a better system, i just need to remote access.... and that's where my problems blew up. There were hours of downtime during the confrence, and in the hotel, i had next to no cell signal. Even if i could access the WiFi, which is another scare in itself, bandwidth would be set to bareminimal, yet alone reduced with the swoths of ppl. Why couldn't my beautiful folding phone be my "steamdeck"... it could if only.... and that's where the Lattepanda Mu comes in. During the confrence, i was so annoyed, so I had hoped i missed a product, or something new was announced. That's when i caught the Mu, and because of the card size module nature of it, i was like, with this i can easil prototpe my idea. I don't have to worry the majorityy of complex PSB issues with a modern x86 processor. The infor and coumentation is open, and the ppl at LattePanda seem to want to help bring my idea to life with being open to discuss possible BIOS needs. And due to the smaller then a credit card size, i can design to how i want it. I don't want a 5kg weight in my pocket, but it don't need to be an Apple feather, either. Also, i can add the USB power method i want. Additionally, build and maybe with the community make a unique project, many people can enjoy. 
+It was a planned, packed 14-hour day, while in a wait room or in transit, i attempted play via moonlight, Star Wars Jedi: Survivor, but the cellular networks weren't cooperating. Later, in a busy environment where I needed to focus on getting some work done, it occured to me, "if only i had my Oculus to remote into my home office and work on massive virtual monitors". However, I remembered the terrible network conditions from earlier in the day, and it also would have been a pain to carry around a laptop that day. So the thought occured, if only i had a pocket size Windows PC I could stream into. I spent some time searching but didn't come up with anything that fit; x86, moderately powerfut yet pocketable and battery powered. This planted the idea of a smaller, more portable solution that could be streamed from. Possible a laptop replacement. I don't know if it would qualify as a cyberdeck. 
 
-While this is an idea i had. I think would like to open this project to anyone whom is interest, and potentially contribute their time, effort or wish for the compleition so they can use the files to build their own.
+Over the next two months, I used my Quest more for remote work but faced hiccups like a PC freeze, random reboot (likely due to brownout, but software not set to startup at boot), a router stall, and on many occasions of network sliggishness. I even ran out of data on my plan one month. Lowering the resolution to 900p on Moonlight usually helped, and for the screen size to held screen distance, plus how games are designed, it hard to notice. But in a work scenario using VR, if it's not 1080p its aweful, especially when the screen is centimeter from my eyes. Higher resolution means higher chance of "hiccups". A PC locally, in my pocket, all these "hicups" would be easily addressed or not at all.
+
+At this point, i have this desire for a new ~~mini~~micro-pc, but it's got to be portable, and be USB-PD powered (It's 2024, I mean most of the mini-pc's don't run near 100W and we've had 240W official since 2022).
+
+Finally, last month, it really got to me. While working as AV at a conference, I saw people using handheld PCs like the Asus Ally and Steamdeck. IMO, I (almost) had a better system, a high end desktop gaming Rig in my hands, more powerful then any handheld. Capable of any game @ 60+ FPS; I just needed reliable and consistant remote access. 
+
+It weight on me so much, as there were hours of downtime during the confrence, i could be getting through my back catologe of game. In the hotel, i had next to no cell signal. And, even if i could access the WiFi (which i wouldn't expose to), likely there would be all kind of network lockdown, possible ports blocked, yet alone reduction in bandwidth due to the thousands of people attending the conference. Why couldn't my beautiful folding phone be my "steamdeck"... it could if only.... and in those moments of dispear, when i did get a cell connection, i found the Lattepanda Mu. 
+
+It's a pretty powerful N100 x86 chip in card-sized compute module. This form-factor makes it perfect, no, the only way, for me prototype my idea, and get the minimalized design im looking for, without all the complex PCB work need for an x86 chip, including PCB RAM Traces. The small size allows for a custom design that isn't too heavy but still functional. I don't want a 5kg weight in my pocket, but it don't need to be an Apple feather, either.
+
+This idea could become a unique project for many to enjoy. I'm open to anyone interested in contributing their time, effort, or support to complete this project so they can build their own device.
 
 **__*****Everything Below this point is still preliminary, and subject to modification and changes*****__**
 
@@ -39,16 +50,16 @@ While this is an idea i had. I think would like to open this project to anyone w
 > * Current = Power/Voltage = 22W/14.8 = 1.49A
 > * Duration = Capcity/Current = 3A/1.49A = 2.01 Hours
 * The desire is for the battery life/status to be integrated into the OS, as if it was a laptop battery. This way the user can see the remaining battery when using Remote Access/Streaming, without having to pull the device out of bag/pocket.
->  * There are two options: either, windows has a SMBus/I2C driver which can detect various BMIC (unless there is a standard i'm not aware of. OR (and what i think it more likely), the BIOS is programmed with the address of the BMIC, and maintains all communication. The OS then pulls this information from the BIOS. If this is as i suspect, the latter, then I hope i can request and discuss with the LattePanda BIOS Team adding this ability, and they can even tell me what BMIC they would prefer if any. 
+>  * There are two options: either, Windows has a SMBus/I2C driver which can detect various BMIC (unless there is a standard i'm not aware of. OR (and what i think it more likely), the BIOS is programmed with the address of the BMIC, and maintains all communication. The OS then pulls this information from the BIOS. If this is as i suspect, the latter, then I hope i can request and discuss with the LattePanda BIOS Team adding this ability, and they can even tell me what BMIC they would prefer if any. 
 > * Investigation Update, with some contraditory info:
 > * 1) My initial quick search seem to indicate, an OS (such as Windows) does get the power information from BIOS through the ACPI (Advanced Configuration and Power Interface) Table. Major firmware update steps on top of address mapping: (Source ChatGPT, so i would need to verify)
 > > * DSDT (Differentiated System Description Table): This table must be updated to include descriptions of the new BMIC and its associated battery. The DSDT provides the operating system with the necessary information to manage the hardware.
 > > * BAT0/BAT1 Objects: These ACPI objects represent the primary and secondary batteries. They must be defined correctly to describe the battery's properties and status.
 > > * Power Source Objects (ACPI Power Source Object - AC): Define the power source objects to ensure the operating system can correctly identify and switch between power sources (e.g., AC adapter and battery).
 > > * Battery Status Methods (e.g., _BST, _BIF): Implement methods in the ACPI tables to provide the battery status (_BST) and battery information (_BIF) to the operating system.
-> * 2) However, attempting to verify, i came across the UPS (Universal Power Supply) Hat created by the DFRobot (which i think is the same ppl at LattePanda). It is powered by 3 18650 Cells. It is said it "supports the HID-UPS protocol, which can be recognized as a battery device in the operating system. You can use system power management to implement power-saving modes and automatic shutdown functions, just like using an internal laptop battery." and the their [wiki](https://wiki.dfrobot.com/SKU_DFR0682_LattePanda_Alpha_Delta_UPS_Hat) shows picutres of windows showing batter. HURRAY!
+> * 2) However, attempting to verify, i came across the UPS (Universal Power Supply) Hat created by the DFRobot (which i think is the same ppl at LattePanda). It is powered by 3 18650 Cells. It is said it "supports the HID-UPS protocol, which can be recognized as a battery device in the operating system. You can use system power management to implement power-saving modes and automatic shutdown functions, just like using an internal laptop battery." and the their [wiki](https://wiki.dfrobot.com/SKU_DFR0682_LattePanda_Alpha_Delta_UPS_Hat) shows picutres of Windows showing batter. HURRAY!
 > * now the downside is this seems to be using the arudino co-processor as the BMIC.... which i don't plan or want to incorportate for a number of reasons, size, more power draw, to name a few. but i may be able to review the source code, and see if i could implement using the same HIDPowerDevice library.
-> * So this is great for windows, but i would still prefer a more universal solution, where that information is pulled from the ACPI of the BIOS, as this would allow proxmox as well as other, plug and play.
+> * So this is great for Windows, but i would still prefer a more universal solution, where that information is pulled from the ACPI of the BIOS, as this would allow proxmox as well as other, plug and play.
 > * 3) Additionally, and this is more of a note, but the LattePanda Alpha has a LiPo connector, and it appears to be a pretty standard pinout. BUT with only Voltage and GND, which i believe means the board likely has BMIC onboard.
 
 #### Prioirty 2: Size
@@ -68,15 +79,18 @@ I'm currently aware of two method to establish a wireless connection Mu-boo Cub 
 * connecting to a external router, and 3rd device, which is counter to the project purpose.
 * connecting to the WiFi card on the Mu-boo Cub Mug. which has its own obstacles and issues.
 The two route for the later would:
-1) using windows network config to share a connection, typically this would be done through windows setting and creating a bridge between ethernet port and wireless adapter. However, there will not be an ethernet adapter, and thus the wireless adapter would need to be set to ad-hoc to turn it into an access point. It is well documented that the reliability of both those ways is not great. As well as Intel adapters being terrible for ad-hoc mode. Additionally, B-Link has/had a usb wireless adapter specifically designed to connect with the Quest via WiFi, but this adapter was problematic with Virtual Desktop users. In fact, the minimum requirements are for a PC/Laptop to be connected to a router via a physical wired connection.
-2) but since, your still connecting wirelessly to a router, that where the second route would come in. Using the virtualization capability of the N100 chip, with something like Proxmox to run two guess OS, one an Open Source router like OpenSNS and Windows.
+1) using Windows network config to share a connection, typically this would be done through Windows setting and creating a bridge between ethernet port and wireless adapter. However, there will not be an ethernet adapter, and thus the wireless adapter would need to be set to ad-hoc to turn it into an access point. It is well documented that the reliability of both those ways is not great. As well as Intel adapters being terrible for ad-hoc mode. Additionally, B-Link has/had a usb wireless adapter specifically designed to connect with the Quest via WiFi, but this adapter was problematic with Virtual Desktop users. In fact, the minimum requirements are for a PC/Laptop to be connected to a router via a physical wired connection.
+2) but since, your still connecting wirelessly to a router, that where the second route would come in. Using the virtualization capability of the N100 chip, with something like Proxmox to run two guess OS, one an Open Source router like OpenWRT and Windows.
 
-Unfortunately, a small hiccup would be if you connect a quest wireless to the Mu-boo Cub Mug, neither would have a connection to the internet. I suspect this could be accomplished in windows, but know it can be done in an open-source router where you bridge the wifi to another wifi device. ideally, you'll want to connect the 2.4Ghz band the internet, leaving the 5GHz or 6GHz band dedicated to only your streaming devices. 
+Unfortunately, a small hiccup would be if you connect a quest wireless to the Mu-boo Cub Mug, neither would have a connection to the internet. I suspect this could be accomplished in Windows, but know it can be done in an open-source router where you bridge the wifi to another wifi device. ideally, you'll want to connect the 2.4Ghz band the internet, leaving the 5GHz or 6GHz band dedicated to only your streaming devices. 
 
-This is where another potential issue crops up. limited resources of core and ram. you basically have 3 OS (proxmox, openSNS and windows) running similtaneously. Ideally, I would like to investigate and try to solve these issues and "hiccups" on Windows, without having to use virtualization. but this would likely take more time, and I would assign it as a V1.1 task. 
+This is where another potential issue crops up. limited resources of core and ram. you basically have 3 OS (proxmox, openWRT and indows) running similtaneously. Ideally, I would like to investigate and try to solve these issues and "hiccups" on Windows, without having to use virtualization. but this would likely take more time, and I would assign it as a V1.1 task. 
 
 #### Choice: Reason I choose USB 4 over OCuLink, considering gaming is a pillar of need. (This maybe more to reassure myself).
-Without a doubt, as showing in multiple reviews and analysis (i'll link any i find below), OCuLink wins in the eGPU department. BUT... this is not soley developed around gaming/eGPU. The top goals of the project is around portability, not absolute, but reasonable, in terms of size, weight, duration. Let's see a side by side feature comparison.
+Without a doubt, as showing in multiple reviews and analysis (i'll link any i find below), OCuLink wins in the eGPU department. BUT... this is not soley developed around gaming/eGPU. The top goals of the project is around portability, not absolute, but reasonable, in terms of size, weight, duration.
+
+1st factor to consider is, where will System bottleneck(s) be? The N100 is an e-core only chip, and on average, it's CPU tests are around 1/2 performance of other CPU of the same year/generation. Frame per second (FPS) is typically CPU dependent (and the link speed between it with GPU), whereas resolution is more GPU dependent. Not to mention the limit of 8GB of RAM. Next, according to the N100 public documents, the max PCIe link speed is x4 (I will reach out to Lattepanda to see if they can verify that PCIe controller 1 and PCIe controller 3 CANNOT be bonded to form a x8 slot). As shown below, on paper, this puts USB4 and OCuLink at the same badnwidth. But, and Unfortunately, the USB protocol will also introduce overhead into the system, further limiting FPS, So you might say, "Well Reaver, all the more reaosn to use OCuLink". Let's see a Side-by-side:
+
 "Paper" Feature | USB 4 | OCuLink-2
 --- | --- | ---
 Standardization Body |	USB-IF (USB Implementers Forum)	| PCI-SIG (PCI Special Interest Group)
@@ -90,7 +104,11 @@ Backward Compatibility |	USB 3.2, USB 2.0, Thunderbolt 3	| PCIe (PCIe 3.0 and 4.
 Latency |	Low, optimized for peripheral connections |	Very low, optimized for high-speed storage interfaces
 Cable Length | Shouldn't be connecting either with longer then 1 meter cable. Longer the cable the more error and performance hit you'd take.
 
-Other factors to consider are where will System bottleneck(s) be? The N100 is an e-core only chip, and on average, it's CPU tests are around 1/2 performance of other CPU of the same year/generation. Frame per second (FPS) is typically CPU dependent (and the link speed between it with GPU), whereas resolution is more GPU dependent. Not to mention the limit of 8GB of RAM. Unfortunately, the USB protocol will also introduce overhead into the system, further limiting FPS, So you might say, "Well Reaver, all the more reaosn to use OCuLink". In the table above, i've bold the aspects, indicating where USB 4 stands out. USB is ubiquitous, backwards compatible, tested/tried/rugged (components, hardware, software), and it's capable of not only data transfer/Tunnelling PCIe, but video output (wish input/capture was standardized), as well as bi-directional power delivery....  "One port to rule them all". Given that due to the N100 design we're max bandwidth wouldnt see an increase, USB onl limited b overhead, and the USB-C connector is smaller, and due to it's ubiqutiousness, there are more options avaialble, like right angle. So, with the exisiting lower performace and potential other bottlenecks, this project is NOT intended or expected to play anything new well, or do anything super mission critical. From a gaming perspective, if anything, it's meant as a compromise and reason to play some of the old catelogue of games you have that you haven't gotten to. Another aspect I think will get complicated is a lack of Hot Plugging. 
+In the table above, I've highlighted the aspects where USB 4 particularly excels for me. USB is ubiquitous, backwards compatible, tried and tested (components, hardware, software), and capable of not only data transfer and tunneling PCIe, but also video output (though I wish input/capture was standardized) and bi-directional power delivery—truly "one port to rule them all."
+
+Considering these aspects, the smaller and easier-to-handle USB-C connector, the availability of various options like right-angle connectors due to its ubiquity, and the N100's limited PCIe bandwidth along with other potential bottlenecks of a lower power design, USB4 was the optimal choice for this project. This project is not intended to handle new or mission-critical tasks but to serve as a practical solution. From a gaming perspective, it's meant as a compromise and a reason to play some of the older games you might have missed.
+
+Additionally, it's worth noting that OCuLink not being hot-pluggable and requiring a second cable for power can complicate things further.
 
 Ideally, I would incorpoate both USB4 and OCuLink. Hell, i even thought of using a PCIe switch of various types. 
 
@@ -98,9 +116,9 @@ Ideally, I would incorpoate both USB4 and OCuLink. Hell, i even thought of using
 
 [N100 performance referrence, No eGPU](https://www.notebookcheck.net/Intel-N100-performance-debut-Beelink-Mini-S12-Pro-mini-PC-review.758950.0.html)
 
-[LattePanda Mu review](https://www.cnx-software.com/2024/06/10/lattepanda-mu-review-intel-n100-compute-module-windows-11-carrier-boards-pcie-slots/)
+[LattePanda Mu review](https://www.cnx-software.com/2024/06/10/lattepanda-mu-review-intel-n100-compute-module-Windows-11-carrier-boards-pcie-slots/)
 
-Note: Another factor that could affect performance, in addition to protocol overhead, is error correction techniques, which might be more effective for PCIe, especially at these bit rates. But that's another topic for another investigation.
+Note: a note that could affect performance, in addition to protocol overhead, is error correction techniques, which might be more effective for PCIe, especially at these bit rates. But that's another topic for another investigation.
 
 
 ## Hardware / Spec
@@ -122,14 +140,14 @@ If PCB layout allows I would like to have have GPIOs, UART and an unused I2C bus
 * M.2 2230 NVMe SSD via HSIO2/3 (PCIe 3.0 x1, 1.97 GB/s, half the USB4 transfer rate as limited by the system )
 > * Ideally PCIe x4 (HSIO0-3)
 > > * Hoping either PCIe BIOS (coming soon), or can discuss with Lattepanda BIOS team, if HSIO0/1 can be grouped with HSIO2/3 to form a PCIe 3.0x4 port. (Since all the lanes belong to the same controller, i'm hopeful.)
-> > * If stuck with only a PCIe x2 port, an NVMe will still 4 times faster then SATA3 SSD, even if it's limited to it's full speed. 
+> > * If stuck with only a PCIe x2 port, an NVMe at x2 will still 4 times faster then SATA3 SSD, even if it's limited to it's full speed. 
 #### Connectivity
 * USB 4 Controller Intel JHL8540 Maple Ridge via HSIO 8-11 (PCIe 3.0 x4)
 > * ASM4242 is an alternative, but doesn't seem avaiable
 > * fall-back OCuLink
 * M.2 E Key 2230 WLAN network card via HSIO6 (PCIe 3.0 x1, 0.985 GB/s)
 > * Intel® Wi-Fi 6E AX210
-> > * There is a history of issues with Virtual Desktop when using windows and Intel WiFi cards in AP mode. May need to use Broadcomm chipset.
+> > * There is a history of issues with Virtual Desktop when using Windows and Intel WiFi cards in AP mode. May need to use Broadcomm chipset.
 > * having WiFi module soldered directly onto board would be better for space saving, but adds more complication to design. Would consider in a final build. 
 > * Investigate if can use TCP (Technology Computer Port)
 #### Main Battery (Based on N100 mini-pc review 22W while running The Witcher 3)
@@ -145,36 +163,40 @@ If PCB layout allows I would like to have have GPIOs, UART and an unused I2C bus
 * Reverse Current and surge/over voltage protection
 
 ## Stages
-1) Research and discuss with LattePanda Team passing battery status to OS Level.
-2) Getting Reference Manual from Intel
-3) use included carrier board to get familar with BIOS and do some baseline performance testing.
+1) Investigate, Research, Planning
+a) Research and discuss with LattePanda Team passing battery status to OS Level.
+b) Getting Thunderbolt chip Reference Manual from Intel
+c) finalize alpha components (look to see if i can find a damaged/broken Thunderbolt PCIe expansion card with same chip for circuit reference. Options:Gigabyte GC-TITAN RIDGE 2.0, ASRock Thunderbolt 4 AIC, ASUS ThunderboltEX 4 )
+d) purchase battery related components, USB-PD IC, as well as WiFi card. 
+2) use included carrier board to get familar with BIOS and do some baseline performance testing, possibly seeing stability ith undervolting.
 > Installing Windows natively
-> > Benchs i can use to compare with other results online using N100
-> Intalling Windows via proxmox
-> > Installing open-source router
-> > Benching windows to compare with native
-3) Using carrier to prototype battery pack.
-4) PCB Design 
-Enclosure designing
+> > Create some baseline data point with typical benchmarks used in reviews.  
+> Setup VM host, Proxmox, and install openWRT guest OS, and install Windows Guest OS
+> > Create second set of bench data points.
+> > 
+3) Using carrier, prototype battery pack, and get it to pass through to Windows.
+4) Macro testing PCB Design v0.1, ordering.
+5) 
+6) Enclosure Design and printing. 
 
 ## Timeline
-
+Stage 1 Completion June 30
+Stage 2 completion July 5
+Stage 3 completion July 14
+Stage 4 completion Augest 11
+Completion End of Sept 2024
 
 ## Varients
 * V2 = Higher mAh battery, (20,000 mAH target). Maybe add camera (play around with Hello Windows) and/or LiDRa, or something to take advantage of those likely 5 unused USB 2.0 ports. (I've always want to have a spectrometer in my pocket... hummm)
 * V-Alpha = Add mobile dGPU, such as GeForce RTX4060 Laptop chip (35-115W) or Radeon RX 7600M (90W)
-* V-Beta* = "MuTop", a PC case (akin to the smallest ITX ones) with a standard GFX card.
+* V-Beta = Portable Cluster
+* V-Delta = a.k.a. "MuTop", a PC case (akin to the smallest ITX ones) with a low-profile 2 slot GFX card.
 > * 1x PCIe3.0 x4 slot 
 > * 1x M.2 2280 x4 NVMe SSD
 > * 1x WiFi
-> * USB-PD 240W, I suspect any GPU that has a TDP greater then 200W will be bottlenecked by N100 system. 
-> **Note**: *only if by 100+ requests for it
+> * USB-PD 240W
+> > * I suspect any GPU that has a TDP greater then 200W will be bottlenecked by N100 system.
+> > * Gigabyte RTX4060 Low-profile is TDP 115W
 > 
 > CWWK Mini PC has something like this called the Magic PC, and claim to have an x8 slot (Intel Doc No.:759603, Sec 19.4, figure.18, would suggest this is NOT possible. According to document, their are 3 seperate PCIe Controllers, two of which have a max of 4 lanes. CWWK's website only shows customs PCBs being attacked to the port, so they could be using their own implementation).
-* V-Detla = Portable Cluster
-
-- Alt applications,Kiosk units, router
-
-- DDI/TCP -> seems to refer to Intel TCSS, "USB-C sub-system supports USB3, DPoC (DisplayPort over Type-C) protocols. The USB-C sub-system can also be configured as native DisplayPort or HDMI interfaces"
-
 
