@@ -95,7 +95,7 @@ Without a doubt, as showing in multiple reviews and analysis (i'll link any i fi
 --- | --- | ---
 Standardization Body |	USB-IF (USB Implementers Forum)	| PCI-SIG (PCI Special Interest Group)
 **Primary Use Case**	| "Universal connectivity (data, video, power)" i.e. consumers |	Internal storage and enterprise connections
-Max Data Transfer Rate (don't forget this doesn't take into account protocol overhead, which is the real killer) |	Up to 5GB/s (40Gbps, limited to 4GB/s)	| Up to 16GB/s (i.e. PCIe 4.0 x8 lanes max, but we're limited to 4GB/s PCIe3.0)
+Max Data Transfer Rate (don't forget this doesn't take into account protocol overhead, which is the real killer) |	Up to 5GB/s (40Gbps, limited to 4GB/s)	| Up to 16GB/s (i.e. PCIe 4.0 x8 lanes max, but we're limited to 4GB/s, or 31.5 Gbps, as it's PCIe3.0 x4)
 **Protocol Support**	| USB, PCIe, DisplayPort	| PCIe (x1, x2, x4, x8 lanes) 
 Backward Compatibility |	USB 3.2, USB 2.0, Thunderbolt 3	| PCIe (PCIe 3.0 and 4.0 backward compatibility)
 **Power Delivery** |	Up to 100W (USB Power Delivery)	| No direct power delivery
@@ -190,13 +190,37 @@ Completion End of Sept 2024
 * V2 = Higher mAh battery, (20,000 mAH target). Maybe add camera (play around with Hello Windows) and/or LiDRa, or something to take advantage of those likely 5 unused USB 2.0 ports. (I've always want to have a spectrometer in my pocket... hummm)
 * V-Alpha = Add mobile dGPU, such as GeForce RTX4060 Laptop chip (35-115W) or Radeon RX 7600M (90W)
 * V-Beta = Portable Cluster
-* V-Delta = a.k.a. "MuTop", a PC case (akin to the smallest ITX ones) with a low-profile 2 slot GFX card.
-> * 1x PCIe3.0 x4 slot 
-> * 1x M.2 2280 x4 NVMe SSD
-> * 1x WiFi
-> * USB-PD 240W
-> > * I suspect any GPU that has a TDP greater then 200W will be bottlenecked by N100 system.
-> > * Gigabyte RTX4060 Low-profile is TDP 115W
+* V-Delta = a Mu-sized PC with Lattepanda Mu(s?) carrier board and configurable Case/Enclosure, designed for portable PC with Low-profile PCIe card, or carry-able Full Size PCIe card with integrarted seperate 12V power connection.
+> * Note: I suspect any GPU that has a TDP greater then 200W will be bottlenecked by N100 system, but there are other reasons you may need a full size card slot.)
 > 
+> * #### Base Core Enclosure
+> * Enclosure will consist of two parts. Base Core for low-profile GFX, which is more portable, or, Expanded yet carry-able design.
+> * Possible cluster/SSI design with 2x Mu compute modules (Initial investigation from V-Beta will determine direction)
+> * 1x PCIe3.0 x16 (mechanically, x4 electrically) slot. (Facilitates either low-profile, or, full-size card via Expanded enclosure)
+> * 1x USB4 Host Controller (Preliminarily Intel JHL8540, ideally ASM4242m which has more DFP)
+>> * Update: Further investigation on this has revealed I can't seem to find a source of the 3 available possible IC (VL830, ASM4242, RTS5930).
+>> * -> USB4.0 to PCIe bridge chip, for M.2 M Key 2280 (Perhaps JHL8440)
+>> * -> USB4 port, both PD and video out (two different locations on enclosure, for different orientations)
+>>> * Reasoning: USB4.0 improved resource allocation capability. In addition to same reasons as for Mu-boo original, and allows for greater flexility of other projects. Ex. a project needs an additional PCIe slot (like AI co-processor), ethernet port, two screens and two USB 3.0 ports. ONLY USB 4.0 can get anywhere near accomedating that.  
+> * 1x M.2 E Key for WiFi (x1 electrically)
+>> *  For reference: WiFi 6 paper max bandwidth is 9.6 Gbps, but practical is 1-2Gbps. WiFI 7 is paper bandwidth 46 Gbps, 5-10Gbps Practical. This is likely based on # of links aswell.)
+> * USB-PD 240W (Gigabyte 0RTX460 Low-profile is TDP 115W) 
+> * The Physical design will be unique, not your typical retangular design. Emphasis will be aiming for portablity, but will try to include:
+>> * 1x USB2.0 Type-A
+>> * 1x USB2.0 Type-C
+>> * 1x HDMI output
+>> * 
+> * Challenges: The challenge in the design will be to figure out a way to limit the power usage, particularly of the GFX so that a reason size battery can use used. Simply cutting off power at the PCIe 12V Aux wouldn't benefit as, PCIe standard allows for up to 75W and I'm not sure if cards are designed to limit current through slot. Ideally we'd want to limit it to 35W in battery mode. Aim for total draw of 55W. The alternative would be to not provide power to PCIe 12V in battery mode, but this would be like hot plugging PCIe. 
+> 
+>  * #### Expanded Enclosure
+>  * Larger Enclosure frame to allow for full-size PCIe Card.
+>  * Quick removal for taking your the more portable Base Core on the go.
+>  * Additional integrated USB-PD 240W power connection.( there is the possibly for a more typical external brick, for higher wattage)
+>    
 > CWWK Mini PC has something like this called the Magic PC, and claim to have an x8 slot (Intel Doc No.:759603, Sec 19.4, figure.18, would suggest this is NOT possible. According to document, their are 3 seperate PCIe Controllers, two of which have a max of 4 lanes. CWWK's website only shows customs PCBs being attacked to the port, so they could be using their own implementation).
+>
+> [Low-profile RTX4060 Power Draw](https://www.thefpsreview.com/2023/12/13/gigabyte-geforce-rtx-4060-oc-low-profile-8g-video-card-review/6/)
 
+#### Roadmap 
+Update 14-06-24: Post Mu-boo V1.
+* Doing some preliminary mechanical layout and concept ~~sketches~~ doodles, I came up with a design concept, V-Delta varient. It's not pocketable, but i believe has a lot of potential for many, and i'm really excitd about. As it's not pocketable, the design might allow more volume in the enclosure. This leads me to wonder if a expandable cluster design would improve performance. Thus, i will do some initial investigation into this, possibly doing the V-Beta post. 
