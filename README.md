@@ -5,11 +5,13 @@ Minimalist Battery-powered and USB4 carrier board and enclosure for the LattePan
 
 ## Highlights
 * Two full functioning USB 4.0 ports, for eGPU, USB Docks and port expanders, Displayport/HDMI, etc.
-* Apprx 4500 to 5000 mAh built-in battery
+* Approx. 4500 to 5000 mAh built-in battery
 * Charging/powered via USB-PD
 * 1x M.2 M-key 2230 slot, for NVMe SSD (hopefully with x4 PCIe lanes)
 * 1x M.2 E-Key 2230 slot, for WLAN
 * Performance mode button
+* I2C pinout via removable window
+* UART pinout via removable window
 
 ## Purpose
 The goal of this project is to design a highly portable, remote access/streaming x86 ~~computer~~ "server" that fits in your pocket. A x86 device for moderate-weight workloads when suitable ARM-based alternatives are lacking. Examples include but not limited to; Gaming, Emulation, Engineering applications such as CAD and CAM, Portable Software Development Environment for running some IDEs, Cybersecurity tools/distros (although Kali has some good ARM stuff), Scientific Research and Enginnering Field Data Analysis, and more....
@@ -143,7 +145,17 @@ If PCB layout allows I would like to have have GPIOs, UART and an unused I2C bus
 * Power on
 #### Buttons
 * Power tact switch
-* Power mode tact switch
+* Performance mode tact switch
+
+CPU PL1 limits
+Performance Mode | Battery | USB-PD (12V/3A) | USB-PD (12V/5A)
+--- | --- | --- | ---
+Default | 6W | 22W | 35W
+Unleashed | 22W | 30W | TBD
+Note1: headroom for board power draw needs to be considered. preliminary estimating 10W
+Note2: unleashing will likely cause fan to be high
+Note3: PL2 numbers will need to be determined based on testing draw/thermals.
+
 #### Ports
 * 2x USB-C, both will be charging capable. 
 > This is the current plan. Since there are many USB-A devicces out there, I am/have considered adding one USB2.0 Type-A port, if PCB and phsysical space will allow. 
@@ -198,9 +210,20 @@ Stage 4 completion Augest 11
 Completion End of Sept 2024
 
 ## Varients
-* V2 = Higher mAh battery, (20,000 mAH target). Maybe add camera (play around with Hello Windows) and/or LiDRa, or something to take advantage of those likely 5 unused USB 2.0 ports. (I've always want to have a spectrometer in my pocket... hummm)
-* V-Alpha = Add mobile dGPU, such as GeForce RTX4060 Laptop chip (35-115W) or Radeon RX 7600M (90W)
-* V-Beta = Portable Cluster
+* V2
+> * Improvements:
+> * Higher mAh capacity battery (10,000 mAH target). 
+> * Size reduction due to various PCB optimizations, better battery choice.
+> * Hopefully find someone with much more mechanical and CAD experience to work on the project to improve the enclosure design. (target is have customized thermal design, and ability to stand on surface)
+> * Possible New Features in consideration:
+> * Add a Camera (ex. security, such as Hello Windows, or remote location monitoring, pickup detection, Motion/finger tracking, and other potential projects)
+> * Add 9-Axis motion sensor / gesture control
+> * ~~Proxity sensor~~ (you won't always be infront of device. it will be in bag, or pocket)
+> * ~~Eye Tracking~~ (same reason as proxity sensor) 
+> * Add Environmental Sensors
+> * MagSafe capability
+* V-Alpha = The dream project. Including a mobile dGPU. (This would be a massive undertaking for one person)
+* V-Beta = Portable Cluster. 
 * V-Delta = a Mu-sized PC with Lattepanda Mu(s?) carrier board and configurable Case/Enclosure, designed for portable PC with Low-profile PCIe card, or carry-able Full Size PCIe card with integrarted seperate 12V power connection.
 > * Note: I suspect any GPU that has a TDP greater then 200W will be bottlenecked by N100 system, but there are other reasons you may need a full size card slot.)
 > 
