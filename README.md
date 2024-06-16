@@ -1,7 +1,15 @@
 # Mu-boo Cub Mug 
 (Working Project Title - Fun cute spin alluding to work with LattePanda Mu)
 
-Minimalist USB 4/Thunderbolt, WiFi 6/BT, Battery-powered carrier expansion for the LattePanda Mu compute module.
+Minimalist Battery-powered and USB4 carrier board and enclosure for the LattePanda Mu compute module.
+
+## Highlights
+* Two full functioning USB 4.0 ports, for eGPU, USB Docks and port expanders, Displayport/HDMI, etc.
+* Apprx 4500 to 5000 mAh built-in battery
+* Charging/powered via USB-PD
+* 1x M.2 M-key 2230 slot, for NVMe SSD (hopefully with x4 PCIe lanes)
+* 1x M.2 E-Key 2230 slot, for WLAN
+* Performance mode button
 
 ## Purpose
 The goal of this project is to design a highly portable, remote access/streaming x86 ~~computer~~ "server" that fits in your pocket. A x86 device for moderate-weight workloads when suitable ARM-based alternatives are lacking. Examples include but not limited to; Gaming, Emulation, Engineering applications such as CAD and CAM, Portable Software Development Environment for running some IDEs, Cybersecurity tools/distros (although Kali has some good ARM stuff), Scientific Research and Enginnering Field Data Analysis, and more....
@@ -68,18 +76,21 @@ This idea could become a unique project for many to enjoy. I'm open to anyone in
 * Preliminary:  4 x 21mm battery width (single row, side-by-side, all 4 cells) + 2 x 1mm enclosure wall thickness + 2 x 1mm wiggle = 88mm wide. 
 
 #### Challenge: Possible Requests and Discussions with LattePanda BIOS Team
-1) In order for OS to have battery info/status, does it need to be passed through BIOS, and can they provide bios with that capabiltiy. 
-2) Request for binding HSIO0-3, as a PCIe3.0 x4, as well as HSIO8-11 for two seperate PCIe3.0 x4 connections. additionally, having HSIO6 for PCIe3.0 x1.
-3) Undervolting and power modes
+1) (Update is needed) In order for OS to have battery info/status, does it need to be passed through BIOS, and can they provide bios with that capabiltiy. 
+2) Request for binding HSIO0-3, as a PCIe3.0 x4, as well as HSIO8-11 for two seperate PCIe3.0 x4 connections. additionally, having HSIO6 for PCIe3.0 x1. (This could be planned by Lattepanda with coming soon PCIe BIOS branch)
+3) Discuss and request BIOS detecting, when the unit is connected to external power or running on battery, either using a GPIO or via USB-PD IC messaging.
+> Additionally, and ideally have the BIOS detect when a GPIO is pulled low, to have PL1/PL2 change between two sets of value at any time. Alternatively, if that's not possible, the BIOS will set the PL1/PL2 level based on the GPIO state at boot.
+> > I generally prefer the first option, but if the second option, should Lattepanda wish to give the option, could create "BIOS setting saves #1 and #2". GPIO low at boot would load setting 1, or at boot, high would load setting 2. This would give user more choice for how they want to run the Mu without needing a monitor and accessing the bios. 
 
 #### Challenge: High speed traces
+- Routing any high speed differential trace will always be a PITA, and pretty much guaranteed need a few board spins to nail the eye. 
 
 #### Challenge: implementation of remote access/streaming.
 I'm currently aware of two method to establish a wireless connection Mu-boo Cub Mug, and another device. 
-* connecting to a external router, and 3rd device, which is counter to the project purpose.
+* connecting to a external router, and 3rd device. which is completely counter to the project purpose.
 * connecting to the WiFi card on the Mu-boo Cub Mug. which has its own obstacles and issues.
 The two route for the later would:
-1) using Windows network config to share a connection, typically this would be done through Windows setting and creating a bridge between ethernet port and wireless adapter. However, there will not be an ethernet adapter, and thus the wireless adapter would need to be set to ad-hoc to turn it into an access point. It is well documented that the reliability of both those ways is not great. As well as Intel adapters being terrible for ad-hoc mode. Additionally, B-Link has/had a usb wireless adapter specifically designed to connect with the Quest via WiFi, but this adapter was problematic with Virtual Desktop users. In fact, the minimum requirements are for a PC/Laptop to be connected to a router via a physical wired connection.
+1) (need to revise) using Windows network config to share a connection, typically this would be done through Windows setting and creating a bridge between ethernet port and wireless adapter (soft Access Point). However, there will not be an ethernet adapter, and thus the wireless adapter would need to be set to ad-hoc to turn it into an access point. It is well documented that the reliability of both those ways is not great. As well as Intel adapters being terrible for ad-hoc mode. Additionally, B-Link has/had a usb wireless adapter specifically designed to connect with the Quest via WiFi, but this adapter was problematic with Virtual Desktop users. In fact, the minimum requirements are for a PC/Laptop to be connected to a router via a physical wired connection.
 2) but since, your still connecting wirelessly to a router, that where the second route would come in. Using the virtualization capability of the N100 chip, with something like Proxmox to run two guess OS, one an Open Source router like OpenWRT and Windows.
 
 Unfortunately, a small hiccup would be if you connect a quest wireless to the Mu-boo Cub Mug, neither would have a connection to the internet. I suspect this could be accomplished in Windows, but know it can be done in an open-source router where you bridge the wifi to another wifi device. ideally, you'll want to connect the 2.4Ghz band the internet, leaving the 5GHz or 6GHz band dedicated to only your streaming devices. 
@@ -132,7 +143,7 @@ If PCB layout allows I would like to have have GPIOs, UART and an unused I2C bus
 * Power on
 #### Buttons
 * Power tact switch
-* 3 stage slider to adjust performance mode.
+* Power mode tact switch
 #### Ports
 * 2x USB-C, both will be charging capable. 
 > This is the current plan. Since there are many USB-A devicces out there, I am/have considered adding one USB2.0 Type-A port, if PCB and phsysical space will allow. 
