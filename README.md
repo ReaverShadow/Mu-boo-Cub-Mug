@@ -3,6 +3,8 @@
 
 Minimalist Battery-powered and USB4 carrier board and enclosure for the LattePanda Mu compute module.
 
+See the [Wiki](https://github.com/ReaverShadow/Mu-boo-Cub-Mug/wiki) for indepth view of the project, including hardware spec, planning, estimated timeline, and long-term roadmap. 
+
 ## Highlights
 * Two full functioning USB 4.0 ports, for eGPU, USB Docks and port expanders, Displayport/HDMI, etc.
 * Two USB 3.2 Gen 2x1 ports with Alt. Mode Display Port Output
