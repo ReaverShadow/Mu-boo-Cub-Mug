@@ -5,6 +5,7 @@ Minimalist Battery-powered and USB4 carrier board and enclosure for the LattePan
 
 ## Highlights
 * Two full functioning USB 4.0 ports, for eGPU, USB Docks and port expanders, Displayport/HDMI, etc.
+* Two USB 3.2 Gen 2x1 ports with Alt. Mode Display Port Output
 * Approx. 4500 to 5000 mAh built-in battery
 * Charging/powered via USB-PD
 * 1x M.2 M-key 2230 slot, for NVMe SSD (hopefully with x4 PCIe lanes)
