@@ -8,7 +8,8 @@ See the [Wiki](https://github.com/ReaverShadow/Mu-boo-Cub-Mug/wiki) for indepth 
 ## Highlights
 * Designed for the Lattepanda Mu COmpute module, featuring an Intel N100 CPU and 8GB RAM.
 * ~~Two full functioning USB 4.0 ports, for eGPU, USB Docks and port expanders, Displayport/HDMI, etc.~~
-* OCuLink **At the current time, adding USB4 might not be possible for the level of this project. I still do strongly believe USB 4.0 is the best route, but in the absents of that option. For at least V1, i will fall-back to OCuLink.**
+* OCuLink
+> **At the current time, adding USB4 might not be possible for the level of this project. I still do strongly believe USB 4.0 is the best route, but in the absents of that option. For at least V1, i will fall-back to OCuLink.**
 * Two USB 3.2 Gen 2x1 ports with Alt. Mode Display Port Output and USB-PD
 * Approx. 4500 to 5000 mAh built-in battery
 * Charging/powered via USB-PD
