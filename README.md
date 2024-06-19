@@ -7,7 +7,7 @@ See the [Wiki](https://github.com/ReaverShadow/Mu-boo-Cub-Mug/wiki) for indepth 
 
 ## Highlights
 * ~~Two full functioning USB 4.0 ports, for eGPU, USB Docks and port expanders, Displayport/HDMI, etc.~~
-* **It's looking like, at the current time, adding USB4 might not be possible unless your a large scale company. Investigating still but could likely fall-back to OCuLink.**
+* **It's looking like, at the current time, adding USB4 might not be possible unless your a large scale company. Investigating still but could likely fall-back to OCuLink. If this is turely the case, i will design an expansion that will latch/slide/or otherwise lock-on to Mu-boo, with a OCuLink to PCIe slot which will fit a low-profile card**
 * Two USB 3.2 Gen 2x1 ports with Alt. Mode Display Port Output
 * Approx. 4500 to 5000 mAh built-in battery
 * Charging/powered via USB-PD
