@@ -1,12 +1,13 @@
 # Mu-boo Cub Mug 
 (Working Project Title - Fun cute spin alluding to work with LattePanda Mu)
 
-Minimalist Battery-powered and USB4 carrier board and enclosure for the LattePanda Mu compute module.
+Minimalist Battery-powered and ~~USB4~~ OCuLink carrier board and enclosure for the LattePanda Mu compute module.
 
 See the [Wiki](https://github.com/ReaverShadow/Mu-boo-Cub-Mug/wiki) for indepth view of the project, including hardware spec, planning, estimated timeline, and long-term roadmap. 
 
 ## Highlights
-* Two full functioning USB 4.0 ports, for eGPU, USB Docks and port expanders, Displayport/HDMI, etc.
+* ~~Two full functioning USB 4.0 ports, for eGPU, USB Docks and port expanders, Displayport/HDMI, etc.~~
+* **It's looking like, at the current time, adding USB4 might not be possible unless your a large scale company. Investigating still but could likely fall-back to OCuLink.**
 * Two USB 3.2 Gen 2x1 ports with Alt. Mode Display Port Output
 * Approx. 4500 to 5000 mAh built-in battery
 * Charging/powered via USB-PD
