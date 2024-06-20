@@ -1,7 +1,7 @@
 # Mu-boo Cub Mug 
 (Working Project Title - Fun cute spin alluding to work with LattePanda Mu)
 
-Minimalist Battery-powered and ~~USB4~~ OCuLink carrier board and enclosure for the LattePanda Mu compute module.
+Minimalist Battery-powered and ~~USB4~~ OCuLink carrier board and enclosure for the LattePanda Mu compute module, which is designed to host am x86 open-source router, and a traditional Desktop Enviroment, such as Windows. 
 
 See the [Wiki](https://github.com/ReaverShadow/Mu-boo-Cub-Mug/wiki) for indepth view of the project, including hardware spec, planning, estimated timeline, and long-term roadmap. 
 
